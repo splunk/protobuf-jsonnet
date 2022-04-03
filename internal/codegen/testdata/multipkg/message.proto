@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package testdata.multipkg;
+
+import "validate/validate.proto";
+import "testdata/multipkg/inner/lib.proto";
+import "testdata/multipkg/none/lib2.proto";
+
+message TopMessage {
+  testdata.multipkg.inner.Lib lib =1;
+  Lib2 lib2 =2;
+}
+

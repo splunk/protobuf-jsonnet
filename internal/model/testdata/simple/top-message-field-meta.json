@@ -1,0 +1,114 @@
+{
+  "bool_field": {
+    "type": "bool",
+    "allowedNames": [
+      "bool_field",
+      "boolField"
+    ]
+  },
+  "bytes_field": {
+    "type": "bytes",
+    "allowedNames": [
+      "bytes_field",
+      "bytesField"
+    ]
+  },
+  "double_field": {
+    "type": "double",
+    "allowedNames": [
+      "double_field",
+      "doubleField"
+    ]
+  },
+  "enum_field": {
+    "type": "testdata.simple.TopLevelEnum",
+    "allowedNames": [
+      "enum_field",
+      "enumField"
+    ]
+  },
+  "fixed32_field": {
+    "type": "fixed32",
+    "allowedNames": [
+      "fixed32_field",
+      "fixed32Field"
+    ]
+  },
+  "fixed64_field": {
+    "type": "fixed64",
+    "allowedNames": [
+      "fixed64_field",
+      "fixed64Field"
+    ]
+  },
+  "float_field": {
+    "type": "float",
+    "allowedNames": [
+      "float_field",
+      "floatField"
+    ]
+  },
+  "int32_field": {
+    "type": "int32",
+    "allowedNames": [
+      "int32_field",
+      "int32Field"
+    ]
+  },
+  "int64_field": {
+    "type": "int64",
+    "allowedNames": [
+      "int64_field",
+      "int64Field"
+    ]
+  },
+  "sfixed32_field": {
+    "type": "sfixed32",
+    "allowedNames": [
+      "sfixed32_field",
+      "sfixed32Field"
+    ]
+  },
+  "sfixed64_field": {
+    "type": "sfixed64",
+    "allowedNames": [
+      "sfixed64_field",
+      "sfixed64Field"
+    ]
+  },
+  "sint32_field": {
+    "type": "sint32",
+    "allowedNames": [
+      "sint32_field",
+      "sint32Field"
+    ]
+  },
+  "sint64_field": {
+    "type": "sint64",
+    "allowedNames": [
+      "sint64_field",
+      "sint64Field"
+    ]
+  },
+  "str_field": {
+    "type": "string",
+    "allowedNames": [
+      "str_field",
+      "strField"
+    ]
+  },
+  "uint32_field": {
+    "type": "uint32",
+    "allowedNames": [
+      "uint32_field",
+      "uint32Field"
+    ]
+  },
+  "uint64_field": {
+    "type": "uint64",
+    "allowedNames": [
+      "uint64_field",
+      "uint64Field"
+    ]
+  }
+}

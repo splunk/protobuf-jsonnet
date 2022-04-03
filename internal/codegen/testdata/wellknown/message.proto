@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package testdata.wellknown;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/wrappers.proto";
+
+message TopMessage {
+  message Config {
+    string name = 1;
+    string value = 2;
+  }
+  google.protobuf.StringValue str_field = 1;
+  google.protobuf.Int32Value int32_field = 2;
+  google.protobuf.Int64Value int64_field = 3;
+  google.protobuf.UInt32Value uint32_field = 4;
+  google.protobuf.UInt64Value uint64_field = 5;
+  google.protobuf.FloatValue float_field = 6;
+  google.protobuf.DoubleValue double_field = 7;
+  google.protobuf.BoolValue bool_field = 8;
+  google.protobuf.BytesValue bytes_field = 9;
+  google.protobuf.Duration duration_field = 10;
+  google.protobuf.Any any_field = 11;
+  google.protobuf.Struct struct_field = 12;
+}
+
+

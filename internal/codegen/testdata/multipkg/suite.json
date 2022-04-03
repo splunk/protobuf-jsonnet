@@ -1,0 +1,8 @@
+{
+  "includeValidate": true,
+  "protoFiles": [
+    "testdata/multipkg/message.proto",
+    "testdata/multipkg/inner/lib.proto",
+    "testdata/multipkg/none/lib2.proto"
+  ]
+}

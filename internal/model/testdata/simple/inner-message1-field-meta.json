@@ -1,0 +1,9 @@
+{
+  "numbers": {
+    "type": "testdata.simple.TopMessage.InnerEnum",
+    "allowedNames": [
+      "numbers"
+    ],
+    "containerType": "list"
+  }
+}

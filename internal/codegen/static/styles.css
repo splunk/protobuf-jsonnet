@@ -1,0 +1,58 @@
+body, li, td, th {
+    font-family: Verdana, sans-serif;
+    font-size: 10pt;
+}
+
+body {
+    margin: 2em;
+}
+
+h1 {
+    font-family: Arial, serif;
+    font-size: 16pt;
+}
+
+h2 {
+    font-family: Arial, serif;
+    font-size: 16pt;
+}
+
+h2 {
+    font-family: Arial, serif;
+    font-size: 12pt;
+}
+
+pre.example {
+    font-size: 110%;
+    color: #333;
+    background: #eee;
+    border: 1px solid #ccc;
+    padding: 0.5em;
+    line-height: 1.3em;
+}
+
+pre.example span.coll {
+    font-weight: bold;
+}
+
+li {
+    padding: 3px 0;
+}
+
+div.crumb {
+}
+
+div.disclaimer {
+    padding: 3px;
+    font-style: italic;
+}
+
+table.fields {
+    border-collapse: collapse;
+}
+
+table.fields td, table.fields th {
+    text-align: left;
+    padding: 5px;
+    border: 1px solid #ccc;
+}

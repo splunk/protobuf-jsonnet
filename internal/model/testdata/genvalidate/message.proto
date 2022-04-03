@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package testdata.genvalidate;
+
+import "validate/validate.proto";
+
+message TopMessage {
+  enum InnerEnum {
+    ZERO = 0;
+    ONE = 1;
+    TWO = 2;
+  }
+  message InnerMessage {
+    string name = 1;
+  }
+  string str_field = 2 [(validate.rules).message.required = true];
+  int32 int32_field = 3 [(validate.rules).message.required = true];
+  int64 int64_field = 4;
+  sint32 sint32_field = 5;
+  sint64 sint64_field = 6;
+  uint32 uint32_field = 7;
+  uint64 uint64_field = 8;
+  fixed32 fixed32_field = 9;
+  fixed64 fixed64_field = 10;
+  sfixed32 sfixed32_field = 11;
+  sfixed64 sfixed64_field = 12;
+  oneof exactly_one_floater {
+    option (validate.required) = true;
+    float float_field = 13;
+    double double_field = 14;
+  }
+  bool bool_field = 15 [(validate.rules).message.required = true];
+  bytes bytes_field = 16;
+  InnerMessage inner = 17 [(validate.rules).message.required = true];
+
+  repeated string str_array = 18 [(validate.rules).repeated.min_items = 2];
+  map<string, string> str_map = 19 [(validate.rules).map.min_pairs = 2];
+}
+

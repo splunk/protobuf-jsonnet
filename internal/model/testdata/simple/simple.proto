@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package testdata.simple;
+
+enum TopLevelEnum {
+  FIRST = 0;
+  SECOND = 1;
+  THIRD = 2;
+}
+
+message TopMessage {
+  enum InnerEnum {
+    ZERO = 0;
+    ONE = 1;
+    TWO = 2;
+  }
+  message InnerMessage1 {
+    repeated InnerEnum numbers = 1;
+  }
+  message InnerMessage2 {
+    map<string, InnerMessage1> msgs = 1;
+    oneof main_or_stub {
+      InnerMessage1 main = 2;
+      string stub = 3;
+    }
+    map<string, string> simple_map = 4;
+  }
+
+  TopLevelEnum enum_field = 1;
+  string str_field = 2;
+  int32 int32_field = 3;
+  int64 int64_field = 4;
+  sint32 sint32_field = 5;
+  sint64 sint64_field = 6;
+  uint32 uint32_field = 7;
+  uint64 uint64_field = 8;
+  fixed32 fixed32_field = 9;
+  fixed64 fixed64_field = 10;
+  sfixed32 sfixed32_field = 11;
+  sfixed64 sfixed64_field = 12;
+  float float_field = 13;
+  double double_field = 14;
+  bool bool_field = 15;
+  bytes bytes_field = 16;
+}
+

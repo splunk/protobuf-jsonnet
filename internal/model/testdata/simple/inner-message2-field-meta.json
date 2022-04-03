@@ -1,0 +1,29 @@
+{
+  "main": {
+    "type": "testdata.simple.TopMessage.InnerMessage1",
+    "allowedNames": [
+      "main"
+    ]
+  },
+  "msgs": {
+    "type": "testdata.simple.TopMessage.InnerMessage1",
+    "allowedNames": [
+      "msgs"
+    ],
+    "containerType": "map"
+  },
+  "simple_map": {
+    "type": "string",
+    "allowedNames": [
+      "simple_map",
+      "simpleMap"
+    ],
+    "containerType": "map"
+  },
+  "stub": {
+    "type": "string",
+    "allowedNames": [
+      "stub"
+    ]
+  }
+}
