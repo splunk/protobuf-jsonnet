@@ -24,8 +24,8 @@ import (
 	"regexp"
 	"strings"
 
-	"cd.splunkdev.com/kanantheswaran/protobuf-jsonnet/internal/model"
 	"github.com/google/go-jsonnet/formatter"
+	"github.com/splunk/protobuf-jsonnet/internal/model"
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/types/pluginpb"
 )

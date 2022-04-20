@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"reflect"
 
-	"cd.splunkdev.com/kanantheswaran/protobuf-jsonnet/internal/validate"
 	"github.com/pkg/errors"
+	"github.com/splunk/protobuf-jsonnet/internal/validate"
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/reflect/protoreflect"
 )

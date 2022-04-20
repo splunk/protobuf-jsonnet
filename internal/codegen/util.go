@@ -24,9 +24,9 @@ import (
 	"os"
 	"text/template"
 
-	"cd.splunkdev.com/kanantheswaran/protobuf-jsonnet/internal/model"
 	"github.com/google/go-jsonnet/formatter"
 	"github.com/iancoleman/strcase"
+	"github.com/splunk/protobuf-jsonnet/internal/model"
 )
 
 const (

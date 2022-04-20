@@ -17,7 +17,7 @@
 package codegen
 
 import (
-	"cd.splunkdev.com/kanantheswaran/protobuf-jsonnet/internal/model"
+	"github.com/splunk/protobuf-jsonnet/internal/model"
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/types/pluginpb"
 )
@@ -40,10 +40,10 @@ local validator = function (input, ctx='') (
 );
 
 {
-	definition: map + { 
+	definition: map + {
 		_new:: function (obj={}) error '%s: the _new method may not be used on enum types' % '{{.QualifiedName}}',
 		_validate:: validator,
-	}, 
+	},
 	validator:: validator,
 }
 `)

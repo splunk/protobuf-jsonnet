@@ -1,5 +1,4 @@
 protobuf-jsonnet
 ---
 
-Stuff to be written
-
+Plugin for generating Jsonnet code from protobufs.

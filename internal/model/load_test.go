@@ -6,7 +6,7 @@ import (
 	"io/ioutil"
 	"testing"
 
-	"cd.splunkdev.com/kanantheswaran/protobuf-jsonnet/internal/testutil"
+	"github.com/splunk/protobuf-jsonnet/internal/testutil"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"google.golang.org/protobuf/types/descriptorpb"

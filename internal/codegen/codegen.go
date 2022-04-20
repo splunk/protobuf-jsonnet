@@ -19,7 +19,7 @@ package codegen
 import (
 	_ "embed"
 
-	"cd.splunkdev.com/kanantheswaran/protobuf-jsonnet/internal/model"
+	"github.com/splunk/protobuf-jsonnet/internal/model"
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/types/descriptorpb"
 	"google.golang.org/protobuf/types/pluginpb"

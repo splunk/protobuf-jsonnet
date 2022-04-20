@@ -17,7 +17,7 @@
 package codegen
 
 import (
-	"cd.splunkdev.com/kanantheswaran/protobuf-jsonnet/internal/model"
+	"github.com/splunk/protobuf-jsonnet/internal/model"
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/types/pluginpb"
 )
@@ -31,7 +31,7 @@ local type = '{{$root.QualifiedName}}';
 local generator = import '../generator.libsonnet';
 local fields = {{json .FieldMeta}};
 local oneOfs = {{json .OneOfs}};
-local validator = generator(type, fields, oneOfs);	
+local validator = generator(type, fields, oneOfs);
 
 {
 	definition: {
