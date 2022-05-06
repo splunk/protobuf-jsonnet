@@ -136,9 +136,10 @@ var linkRegex = regexp.MustCompile(`_([me])_\((.+?)\)`)
 func (c *CodeGenerator) messageExampleHTML(m *model.Message, tlm *typeLinkMap) (string, error) {
 	var example bytes.Buffer
 	example.WriteString(fmt.Sprintf("local types = import '%s';\n\n", typesFile))
-	example.WriteString(fmt.Sprintf("types.%s.", m.QualifiedName()))
+	example.WriteString(fmt.Sprintf("types.%s", m.QualifiedName()))
 	for _, field := range m.Fields() {
 		example.WriteString("\n    ")
+		example.WriteString(".")
 		example.WriteString(field.SetterName())
 		example.WriteString("(")
 		if field.IsList() {
@@ -152,9 +153,9 @@ func (c *CodeGenerator) messageExampleHTML(m *model.Message, tlm *typeLinkMap) (
 		} else if field.IsMap() {
 			example.WriteString(" }")
 		}
-		example.WriteString(").")
+		example.WriteString(")")
 	}
-	example.WriteString("\n_validate()")
+	example.WriteString("\n._validate()")
 	opts := formatter.DefaultOptions()
 	opts.PadArrays = true
 	exampleCode, err := formatJsonnet(example.String(), opts)
