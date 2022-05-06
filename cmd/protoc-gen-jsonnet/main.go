@@ -22,7 +22,7 @@ import (
 	"log"
 	"os"
 
-	"cd.splunkdev.com/kanantheswaran/protobuf-jsonnet/internal/codegen"
+	"github.com/splunk/protobuf-jsonnet/internal/codegen"
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/types/pluginpb"
 )

@@ -23,7 +23,7 @@ import (
 	"sort"
 	"strings"
 
-	"cd.splunkdev.com/kanantheswaran/protobuf-jsonnet/internal/validate"
+	"github.com/splunk/protobuf-jsonnet/internal/validate"
 	"google.golang.org/protobuf/types/descriptorpb"
 )
 

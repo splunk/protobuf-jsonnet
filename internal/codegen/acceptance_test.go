@@ -8,10 +8,10 @@ import (
 	"path/filepath"
 	"testing"
 
-	"cd.splunkdev.com/kanantheswaran/protobuf-jsonnet/internal/codegen"
-	"cd.splunkdev.com/kanantheswaran/protobuf-jsonnet/internal/testutil"
 	"github.com/google/go-jsonnet"
 	"github.com/google/go-jsonnet/formatter"
+	"github.com/splunk/protobuf-jsonnet/internal/codegen"
+	"github.com/splunk/protobuf-jsonnet/internal/testutil"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

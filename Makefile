@@ -1,4 +1,4 @@
-PROTOC_GEN_VALIDATE_VERSION=v0.6.1
+PROTOC_GEN_VALIDATE_VERSION=v0.6.7
 
 local:
 	make build
@@ -20,4 +20,3 @@ generate: .bin/protoc-gen-go
 	@PATH=$(PWD)/.bin:$(PATH) protoc --go_out=. --go_opt=Mvalidate/validate.proto=internal/validate  -I .gen/ validate/validate.proto
 	mv .gen/validate/validate.proto internal/validate/
 	rm -rf .gen
-

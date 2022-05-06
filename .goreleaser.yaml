@@ -1,0 +1,51 @@
+builds:
+  - id: protoc-gen-jsonnet
+    binary: protoc-gen-jsonnet
+    main: cmd/protoc-gen-jsonnet
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    ignore:
+      - goos: windows
+        goarch: arm64
+archives:
+  - name_template: "{{.ProjectName}}-{{.Os}}-{{.Arch}}"
+    format: tar.gz
+    format_overrides:
+      - goos: windows
+        format: zip
+
+brews:
+  - name: protoc-gen-jsonnet
+    tap:
+      owner: splunk
+      name: homebrew-tap
+    url_template: https://github.com/splunk/protobuf-jsonnet/releases/download/{{.Tag}}/{{.ArtifactName}}
+    homepage: "https://github.com/splunk/protobuf-jsonnet"
+    description: protoc-gen-jsonnet is a plugin for generating Jsonnet code from protobuf definitions.
+    # test: |
+    #   system "#{bin}/protobuf-jsonnet version"
+
+    install: |
+      bin.install "protoc-gen-jsonnet"
+
+checksum:
+  name_template: "sha256-checksums.txt"
+snapshot:
+  name_template: "{{.Version}}-next"
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "README.md"
+      - ".gitignore"
+      - "^site:"
+      - "^examples:"
+      - Merge pull request
+      - Merge branch
