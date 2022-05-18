@@ -1,7 +1,7 @@
 builds:
   - id: protoc-gen-jsonnet
     binary: protoc-gen-jsonnet
-    main: cmd/protoc-gen-jsonnet
+    main: ./cmd/protoc-gen-jsonnet
     env:
       - CGO_ENABLED=0
     goos:
