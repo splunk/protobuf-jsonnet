@@ -4,10 +4,11 @@ local:
 	make build
 	make test
 
-build:
+build: get
 	go install ./...
-
-test:
+get:
+        go get ./...
+test: get
 	go test -v ./...
 
 .bin/protoc-gen-go:
