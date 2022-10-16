@@ -22,7 +22,6 @@ package testutil
 import (
 	"bytes"
 	"fmt"
-	"io/ioutil"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -49,7 +48,7 @@ func Request(t *testing.T, cfg ProtocConfig) *pluginpb.CodeGeneratorRequest {
 	executable, err := exec.LookPath("protoc")
 	require.NoError(t, err)
 
-	tmpFile, err := ioutil.TempFile("", "proto-test")
+	tmpFile, err := os.CreateTemp("", "proto-test")
 	require.NoError(t, err)
 	tmpName := tmpFile.Name()
 	_ = tmpFile.Close()
@@ -74,7 +73,7 @@ func Request(t *testing.T, cfg ProtocConfig) *pluginpb.CodeGeneratorRequest {
 	}
 	require.NoError(t, err)
 
-	b, err := ioutil.ReadFile(tmpName)
+	b, err := os.ReadFile(tmpName)
 	require.NoError(t, err)
 	var desc descriptorpb.FileDescriptorSet
 	err = proto.Unmarshal(b, &desc)
@@ -96,16 +95,16 @@ func GenerateCode(t *testing.T, generator CodeGenerator, req *pluginpb.CodeGener
 	targetDir := filepath.Join(testDir, ".gen")
 	err := os.RemoveAll(targetDir)
 	require.NoError(t, err)
-	err = os.MkdirAll(targetDir, 0755)
+	err = os.MkdirAll(targetDir, 0o755)
 	require.NoError(t, err)
 	res, err := generator.Generate(req)
 	require.NoError(t, err)
 	for _, outFile := range res.GetFile() {
 		name := outFile.GetName()
 		dir := filepath.Dir(name)
-		err = os.MkdirAll(filepath.Join(targetDir, dir), 0755)
+		err = os.MkdirAll(filepath.Join(targetDir, dir), 0o755)
 		require.NoError(t, err)
-		err = ioutil.WriteFile(filepath.Join(targetDir, name), []byte(outFile.GetContent()), 0644)
+		err = os.WriteFile(filepath.Join(targetDir, name), []byte(outFile.GetContent()), 0o644)
 		require.NoError(t, err)
 	}
 	return targetDir

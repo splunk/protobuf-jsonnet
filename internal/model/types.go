@@ -45,9 +45,7 @@ const (
 	ContainerTypeMap  ContainerType = "map"
 )
 
-var (
-	optionSkipValidateRules = false
-)
+var optionSkipValidateRules = false
 
 func SetSkipValidations(flag bool) {
 	optionSkipValidateRules = flag
@@ -107,16 +105,16 @@ func (f *Field) Name() string {
 	return f.f.GetName()
 }
 
-// JsonName returns the JSON name for the field.
-func (f *Field) JsonName() string {
+// jsonName returns the JSON name for the field.
+func (f *Field) jsonName() string {
 	return f.f.GetJsonName()
 }
 
 // AllowedNames returns the set of names allowed to refer to this field.
 func (f *Field) AllowedNames() []string {
 	ret := []string{f.Name()}
-	if f.Name() != f.JsonName() {
-		ret = append(ret, f.JsonName())
+	if f.Name() != f.jsonName() {
+		ret = append(ret, f.jsonName())
 	}
 	return ret
 }
@@ -154,7 +152,7 @@ func (f *Field) IsMap() bool {
 
 // SetterName returns the name of the setter to be used for this type in generated code.
 func (f *Field) SetterName() string {
-	name := f.JsonName()
+	name := f.jsonName()
 	return "with" + strings.ToUpper(name[0:1]) + name[1:]
 }
 

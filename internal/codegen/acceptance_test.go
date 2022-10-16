@@ -3,7 +3,6 @@ package codegen_test
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"testing"
@@ -50,18 +49,18 @@ func mustFormatJsonnet(t *testing.T, s string) string {
 func (r *testRunner) run() {
 	code := r.test.Code
 	if code == "" {
-		b, err := ioutil.ReadFile(filepath.Join(r.dir, r.test.File))
+		b, err := os.ReadFile(filepath.Join(r.dir, r.test.File))
 		require.NoError(r.t, err)
 		code = string(b)
 	}
 	code = mustFormatJsonnet(r.t, code)
 	if os.Getenv("VERBOSE") == "1" {
-		fmt.Fprintf(os.Stderr, "CODE:\n%s\n", code)
+		_, _ = fmt.Fprintf(os.Stderr, "CODE:\n%s\n", code)
 	}
 	res, err := r.vm(code, "<"+r.test.Name+">")
 	if os.Getenv("VERBOSE") == "1" {
-		fmt.Fprintf(os.Stderr, "RES:\n%s\n", res)
-		fmt.Fprintf(os.Stderr, "ERR:%v\n", err)
+		_, _ = fmt.Fprintf(os.Stderr, "RES:\n%s\n", res)
+		_, _ = fmt.Fprintf(os.Stderr, "ERR:%v\n", err)
 	}
 	if r.test.Err != "" {
 		require.Error(r.t, err)
@@ -101,7 +100,7 @@ func (s *suiteRunner) run() {
 	generatedDir := testutil.GenerateCode(s.t, cg, req, s.dir)
 	s.genDir = generatedDir
 	file := filepath.Join(s.dir, "tests.jsonnet")
-	b, err := ioutil.ReadFile(file)
+	b, err := os.ReadFile(file)
 	require.NoError(s.t, err)
 	evaluated, err := s.vm()(string(b), file)
 	require.NoError(s.t, err)
@@ -135,7 +134,7 @@ func TestAcceptance(t *testing.T) {
 	for _, suiteFile := range suiteFiles {
 		name := filepath.Base(filepath.Dir(suiteFile))
 		t.Run(name, func(t *testing.T) {
-			b, err := ioutil.ReadFile(suiteFile)
+			b, err := os.ReadFile(suiteFile)
 			require.NoError(t, err)
 			var suite Suite
 			err = json.Unmarshal(b, &suite)
