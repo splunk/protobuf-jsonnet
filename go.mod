@@ -1,6 +1,6 @@
 module github.com/splunk/protobuf-jsonnet
 
-go 1.18
+go 1.19
 
 require (
 	github.com/google/go-jsonnet v0.18.0
