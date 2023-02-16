@@ -18,7 +18,7 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
+	"io"
 	"log"
 	"os"
 
@@ -31,7 +31,7 @@ func run() error {
 	if len(os.Args) > 1 {
 		return fmt.Errorf("unknown argument %q (this program should be run by protoc, not directly)", os.Args[1])
 	}
-	in, err := ioutil.ReadAll(os.Stdin)
+	in, err := io.ReadAll(os.Stdin)
 	if err != nil {
 		return err
 	}

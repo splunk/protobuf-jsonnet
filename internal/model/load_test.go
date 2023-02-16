@@ -3,7 +3,7 @@ package model
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"os"
 	"testing"
 
 	"github.com/splunk/protobuf-jsonnet/internal/testutil"
@@ -13,7 +13,7 @@ import (
 )
 
 func checkMeta(t *testing.T, msg *Message, expectedFile string) {
-	b, err := ioutil.ReadFile(expectedFile)
+	b, err := os.ReadFile(expectedFile)
 	require.NoError(t, err)
 	var expected map[string]FieldMeta
 	err = json.Unmarshal(b, &expected)
