@@ -10,13 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     name: goreleaser
     steps:
-      - uses: actions/setup-go@v2
+      - uses: actions/setup-go@v3
         with:
-          go-version: 1.18
+          go-version: stable
         id: go
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Release via goreleaser
-        uses: goreleaser/goreleaser-action@v2
+        uses: goreleaser/goreleaser-action@v4
         with:
           args: release --rm-dist
         env:
