@@ -1,4 +1,4 @@
-PROTOC_GEN_VALIDATE_VERSION=v0.6.7
+PROTOC_GEN_VALIDATE_VERSION=v0.9.1
 
 local:
 	make build
@@ -12,7 +12,7 @@ test:
 
 .bin/protoc-gen-go:
 	mkdir -p .bin/
-	GOBIN=$(PWD)/.bin go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28
+	GOBIN=$(PWD)/.bin go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28.1
 
 generate: .bin/protoc-gen-go
 	rm -rf .gen

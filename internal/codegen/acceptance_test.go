@@ -82,12 +82,25 @@ type suiteRunner struct {
 }
 
 func (s *suiteRunner) run() {
+
+	var includePaths []string
 	if s.config.ProtoFiles == nil {
 		files, err := filepath.Glob(fmt.Sprintf("%s/*.proto", s.dir))
 		require.NoError(s.t, err)
-		s.config.ProtoFiles = files
+		var protoFiles []string
+		for _, file := range files {
+			// Include the proto file's parent path so that protoc files can be looked up
+			// Verbatim from protoc's error message:
+			// Note that the proto_path must be an exact prefix of the .proto file names --
+			// protoc is too dumb to figure out when two paths (e.g. absolute and relative)
+			// are equivalent (it's harder than you think).
+			// The lookup is problematic on windows but not on *nix systems
+			includePaths = append(includePaths, filepath.Dir(file))
+			protoFiles = append(protoFiles, filepath.Base(file))
+		}
+		s.config.ProtoFiles = protoFiles
 	}
-	var includePaths []string
+
 	if s.config.IncludeValidate {
 		includePaths = append(includePaths, ".", "..")
 	}
